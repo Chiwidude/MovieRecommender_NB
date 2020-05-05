@@ -5,6 +5,15 @@
  */
 package com.mycompany.aiproject;
 
+import com.opencsv.CSVReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author panch
@@ -16,7 +25,14 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        movies = new ArrayList<>();
+        try {
+            data();
+        } catch (IOException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+    ArrayList<Movie> movies;    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,16 +84,26 @@ public class Menu extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-            
-        String Data = "";
+        //</editor-fold>                    
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Menu().setVisible(true);
             }
-        });
+        });       
+        
     }
+    void data () throws FileNotFoundException, IOException{
+        ArrayList<Movie> data = new ArrayList<>();
+        CSVReader reader = new CSVReader(new FileReader("C:/IA/AIProject/data/Data_Proyecto.csv"));
+        List<String[]> lines = reader.readAll();
+        for(int i = 1; i<lines.size(); i++){
+            data.add(new Movie(lines.get(i)));
+        }
+        this.movies = data;
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
