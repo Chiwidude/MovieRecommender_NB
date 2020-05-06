@@ -10,9 +10,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -25,14 +27,25 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        this.displayMovie_1.setEditable(false);
+        this.displayMovie_2.setEditable(false);
+        this.displayMovie_3.setEditable(false);
+        this.goUp.setEnabled(false);
+        
         movies = new ArrayList<>();
+        displaying = new ArrayList<>();
         try {
             data();
         } catch (IOException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.Initialshow();
     }
-    ArrayList<Movie> movies;    
+    ArrayList<Movie> movies;
+    List<Movie> displaying;
+    int left = 0;
+    int center = 1;
+    int right = 2;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,11 +60,11 @@ public class Menu extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         displayMovie_1 = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        displayMovie_2 = new javax.swing.JTextArea();
         btnfavMovie1 = new javax.swing.JToggleButton();
         btnfavMovie2 = new javax.swing.JToggleButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        displayMovie_3 = new javax.swing.JTextArea();
         btnfavMovie3 = new javax.swing.JToggleButton();
         goUp = new javax.swing.JButton();
         goDown = new javax.swing.JButton();
@@ -64,27 +77,36 @@ public class Menu extends javax.swing.JFrame {
         displayMovie_1.setColumns(20);
         displayMovie_1.setRows(5);
         jScrollPane2.setViewportView(displayMovie_1);
-        displayMovie_1.getAccessibleContext().setAccessibleParent(jScrollPane1);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        displayMovie_2.setColumns(20);
+        displayMovie_2.setRows(5);
+        jScrollPane1.setViewportView(displayMovie_2);
 
         btnfavMovie1.setText("Add Favorite");
 
         btnfavMovie2.setText("Add Favorite");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane3.setViewportView(jTextArea2);
+        displayMovie_3.setColumns(20);
+        displayMovie_3.setRows(5);
+        jScrollPane3.setViewportView(displayMovie_3);
 
         btnfavMovie3.setText("Add Favorite");
 
         goUp.setText("↑");
         goUp.setToolTipText("Scroll Up");
+        goUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goUpActionPerformed(evt);
+            }
+        });
 
         goDown.setText("↓");
         goDown.setToolTipText("Scroll Down");
+        goDown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goDownActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,11 +115,11 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(77, 77, 77)
                 .addComponent(btnfavMovie1)
-                .addGap(100, 100, 100)
+                .addGap(98, 98, 98)
                 .addComponent(btnfavMovie2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnfavMovie3)
-                .addGap(101, 101, 101))
+                .addGap(103, 103, 103))
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -120,9 +142,9 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                        .addGap(21, 21, 21)
                         .addComponent(jLabel1)
-                        .addGap(52, 52, 52)
+                        .addGap(54, 54, 54)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
                             .addComponent(jScrollPane1)
@@ -133,15 +155,55 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(goDown, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnfavMovie1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnfavMovie2)
-                    .addComponent(btnfavMovie3))
-                .addContainerGap(130, Short.MAX_VALUE))
+                    .addComponent(btnfavMovie3)
+                    .addComponent(btnfavMovie1))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void goDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goDownActionPerformed
+        if(left == 0){
+            this.goUp.setEnabled(true);
+        }
+        left+=3;
+        center+=3;
+        right+=3;
+        if(left <=this.displaying.size()){
+            this.displayMovie_1.setText(this.displaying.get(left).toString());
+        }
+        if(center <= this.displaying.size()){
+            this.displayMovie_2.setText(this.displaying.get(center).toString());
+        }
+        if(right <= this.displaying.size()){
+            this.displayMovie_3.setText(this.displaying.get(right).toString());
+        }
+        if(left == this.displaying.size()||center == this.displaying.size()||right == this.displaying.size()){
+            this.goDown.setEnabled(false);
+        }
+    }//GEN-LAST:event_goDownActionPerformed
+
+    private void goUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goUpActionPerformed
+        
+        left-=3;
+        center-=3;
+        right-=3;
+        if(left <=this.displaying.size()){
+            this.displayMovie_1.setText(this.displaying.get(left).toString());
+        }
+        if(center <= this.displaying.size()){
+            this.displayMovie_2.setText(this.displaying.get(center).toString());
+        }
+        if(right <= this.displaying.size()){
+            this.displayMovie_3.setText(this.displaying.get(right).toString());
+        }
+        if(left == 0){
+            this.goUp.setEnabled(false);
+        }
+    }//GEN-LAST:event_goUpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,6 +248,14 @@ public class Menu extends javax.swing.JFrame {
         }
         this.movies = data;
     }
+    void Initialshow(){
+        sampling samples = new sampling();
+        //this.displaying = this.movies.stream().sorted(Comparator.comparing(Movie::getIMDB_Score).reversed()).collect(Collectors.toList());
+        this.displaying = samples.SamplingStart(this.movies);
+        this.displayMovie_1.setText(this.displaying.get(0).toString());
+        this.displayMovie_2.setText(this.displaying.get(1).toString());
+        this.displayMovie_3.setText(this.displaying.get(2).toString());        
+    }
     
     
 
@@ -194,13 +264,13 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnfavMovie2;
     private javax.swing.JToggleButton btnfavMovie3;
     private javax.swing.JTextArea displayMovie_1;
+    private javax.swing.JTextArea displayMovie_2;
+    private javax.swing.JTextArea displayMovie_3;
     private javax.swing.JButton goDown;
     private javax.swing.JButton goUp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 }
