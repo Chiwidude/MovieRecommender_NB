@@ -39,12 +39,20 @@ public class Feature{
         this.punlikeliness = punlikeliness;
     }
     String value;
+    String category;
     private double plikeliness;
     private double punlikeliness;
-    
-   Feature(String value){
+       
+   Feature(String category, String value){
+       this.category = category;
        this.value = value;
        this.plikeliness = 0.0;
        this.punlikeliness = 0.0;
    }
+  public Feature(Feature data){
+      this.category = data.category;
+      this.value = data.value;
+      this.plikeliness = data.plikeliness;
+      this.punlikeliness = data.punlikeliness;
+  }
 }

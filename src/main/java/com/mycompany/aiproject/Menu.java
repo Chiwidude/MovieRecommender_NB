@@ -297,8 +297,7 @@ public class Menu extends javax.swing.JFrame {
         //this.displaying = this.movies.stream().sorted(Comparator.comparing(Movie::getIMDB_Score).reversed()).collect(Collectors.toList());
         samples.Sampling(this.movies);
         this.movies = samples.CalculatePMovies(this.movies);
-        this.displaying = movies.stream().sorted(Comparator.comparing(Movie::getLikeliness).reversed()).collect(Collectors.toList());
-        
+        this.displaying = movies.stream().sorted(Comparator.comparing(Movie::getLikeliness).reversed()).collect(Collectors.toList());        
         this.displayMovie_1.setText(this.displaying.get(0).toString());
         this.displayMovie_2.setText(this.displaying.get(1).toString());
         this.displayMovie_3.setText(this.displaying.get(2).toString());        

@@ -48,8 +48,8 @@ public class Movie {
     
    String color;
    String title;
-   FArray plot_keywords;
-   FArray genres;
+   String[] plot_keywords;
+   String[] genres;
    String director;
    int critics_reviews;
    String Actor1;
@@ -72,9 +72,9 @@ public class Movie {
        this.critics_reviews = data[2].trim().equals("")? 0: Integer.parseInt(data[2].trim());
        this.Actor2 = data[3].trim();
        this.Actor1 = data[4].trim();
-       this.genres = new FArray(data[5].split("_"));
+       this.genres = data[5].split("_");
        this.title = data[6].trim();
-       this.plot_keywords = new FArray(data[7].split("_"));
+       this.plot_keywords = data[7].split("_");
        this.year =  data[8].trim();
        this.IMDB_Score = data[9].trim().equals("")? 0.0: Double.parseDouble(data[9].trim());
        this.facebook_likes = data[10].trim().equals("")? 0: Integer.parseInt(data[10].trim());
@@ -96,8 +96,8 @@ public class Movie {
        src.append(String.valueOf(this.getIMDB_Score()));
        src.append(System.lineSeparator());
        src.append("Genres: ");
-       for(Feature gen : genres.values){
-           src.append(gen.value);
+       for(String gen : genres){
+           src.append(gen);
            src.append(" |");
        }
        
@@ -105,21 +105,24 @@ public class Movie {
    }
    
    
+   public Movie (Movie data){
+       this.Actor1 = data.Actor1;
+       this.Actor2 = data.Actor2;
+       this.IMDB_Score = data.IMDB_Score;
+       this.color = data.color;
+       this.critics_reviews = data.critics_reviews;
+       this.director = data.director;
+       this.facebook_likes = data.facebook_likes;
+       this.likeliness = data.likeliness;
+       this.liked_ByUser = data.liked_ByUser;
+       this.title = data.title;
+       this.unlikeliness = data.unlikeliness;
+       this.priorLikeliness = data.priorLikeliness;
+       this.priorUnlikeliness = data.priorUnlikeliness;
+       this.genres = data.genres;
+       this.plot_keywords = data.plot_keywords;
+       this.year = data.year;
+   }
+   
   
-}
-
-class FArray{
-    Feature[] values;
-    double plikeliness;
-    double punlikeliness;
-    
-    FArray(String[] values){
-        this.plikeliness = 0.0;
-        this.punlikeliness = 0.0;
-        this.values = new Feature[values.length];
-        for (int i = 0; i< values.length; i++) {
-            this.values[i] = new Feature(values[i].trim());
-        }
-    }
-        
 }
