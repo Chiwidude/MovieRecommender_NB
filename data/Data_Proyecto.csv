@@ -57,7 +57,7 @@ Color,Steven Spielberg,470,Ray Winstone,Harrison Ford,Action_Adventure_Fantasy,I
 Color,Peter Sohn,298,Jack McGraw,A.J. Buckley,Adventure_Animation_Comedy_Family_Fantasy,The Good Dinosaur,apatosaurus_asteroid_dinosaur_fear_river,2015,6.8,20000
 Color,Mark Andrews,488,John Ratzenberger,Kelly Macdonald,Adventure_Animation_Comedy_Family_Fantasy,Brave,archery_coming of age_female warrior_princess_rebellious daughter,2012,7.2,39000
 Color,Justin Lin,322,Melissa Roxburgh,Sofia Boutella,Action_Adventure_Sci-Fi_Thriller,Star Trek Beyond,hatred_sequel_space opera_star trek_third part,2016,7.5,30000
-Color,Andrew Stanton,421,Fred Willard,John Ratzenberger,Adventure_Animation_Family_Sci-Fi,WALLÂ·E,earth_obesity_plant_robot_soil,2008,8.4,16000
+Color,Andrew Stanton,421,Fred Willard,John Ratzenberger,Adventure_Animation_Family_Sci-Fi,WALL·E,earth_obesity_plant_robot_soil,2008,8.4,16000
 Color,Brett Ratner,162,Dana Ivey,Tzi Ma,Action_Comedy_Crime_Thriller,Rush Hour 3,ambassador_assassination_chinese_french_triad,2007,6.2,0
 Color,Roland Emmerich,367,Liam James,Oliver Platt,Action_Adventure_Sci-Fi,2012,ark_catastrophe_geologist_president_writer,2009,5.8,13000
 Color,Robert Zemeckis,240,Colin Firth,Robin Wright,Animation_Drama_Family_Fantasy,A Christmas Carol,charles dickens_christmas_christmas eve_ghost_scrooge,2009,6.8,0
@@ -793,7 +793,6 @@ Color,Lee Tamahori,77,Nona Gaye,Sunny Mabrey,Action_Adventure_Crime_Thriller,xXx
 Color,Scott Stewart,225,Alan Dale,Josh Wingate,Action_Fantasy_Horror_Sci-Fi_Thriller,Priest,church_priest_sheriff_vampire_warrior,2011,5.7,20000
 Color,Patrick Gilmore,98,Adriano Giannini,Brad Pitt,Adventure_Animation_Comedy_Drama_Family_Fantasy_Romance,Sinbad: Legend of the Seven Seas,book_framed_goddess_prince_sinbad,2003,6.7,880
 Color,Paul W.S. Anderson,172,Joely Richardson,Sean Pertwee,Horror_Sci-Fi_Thriller,Event Horizon,solar system_space_spaceship_starship_year 2047,1997,6.7,10000
-Color,Joss Whedon,703,Robert Downey Jr.,Chris Hemsworth,Action_Adventure_Sci-Fi,The Avengers,alien invasion_assassin_battle_iron man_soldier,2012,8.1,123000
 Color,Tom Shadyac,117,Susanna Thompson,Joe Morton,Drama_Fantasy_Mystery_Romance_Thriller,Dragonfly,death_doctor_grave_patient_venezuela,2002,6.1,0
 Color,Brian De Palma,240,Mia Kirshner,Scarlett Johansson,Crime_Drama_Mystery_Thriller,The Black Dahlia,black dahlia_boxer_corpse_death_partner,2006,5.6,0
  Black and White,Tony Bill,123,Tyler Labine,James Franco,Action_Adventure_Drama_History_Romance_War,Flyboys,american_france_military_pilot_training,2006,6.6,2000
@@ -1250,7 +1249,7 @@ Color,Mathieu Kassovitz,207,Charles S. Dutton,Robert Downey Jr.,Horror_Mystery_T
 Color,Steven Spielberg,77,Morgan Freeman,Anthony Hopkins,Drama_History,Amistad,courtroom_mutiny_ship_slave ship_slave trade,1997,7.2,0
 Color,John McTiernan,25,JosÃ© Wilker,Lorraine Bracco,Adventure_Drama_Romance,Medicine Man,cancer_environment_gas chromatograph_jungle_nature,1992,6,694
 Color,Colin Strause,211,Johnny Lewis,Sam Trammell,Action_Horror_Sci-Fi_Thriller,Aliens vs. Predator: Requiem,alien_escape_hunting_hybrid_predator,2007,4.7,0
-Color,Donald Petrie,19,John Larroquette,Macaulay Culkin,Comedy_Family,RiÂ¢hie RiÂ¢h,attempted murder_based on comic book_escape from prison_lost at sea_wealth,1994,5.2,0
+Color,Donald Petrie,19,John Larroquette,Macaulay Culkin,Comedy_Family,Ri¢hie Ri¢h,attempted murder_based on comic book_escape from prison_lost at sea_wealth,1994,5.2,0
 Color,Joan Chen,101,Sam Trammell,J.K. Simmons,Drama_Romance,Autumn in New York,may december romance_new york_new york city_rockefeller center_title directed by female,2000,5.5,0
 Color,Marc Lawrence,175,Scott Porter,Brad Garrett,Comedy_Music_Romance,Music and Lyrics,love_lyricist_singer_singing_song,2007,6.5,0
 Color,Greg Mottola,342,Nelson Ascencio,Bobby Lee,Adventure_Comedy_Sci-Fi,Paul,alien_geek_nerd_road trip_ufo,2011,7,42000
@@ -2052,7 +2051,7 @@ Color,Peter Jackson,446,Thomas Kretschmann,Naomi Watts,Action_Adventure_Drama_Ro
  Black and White,Frank Coraci,108,Clint Howard,Adam Sandler,Comedy_Sport,The Waterboy,coach_college_college football_domineering mother_football,1998,6.1,0
 Color,Irvin Kershner,223,Kenny Baker,Harrison Ford,Action_Adventure_Fantasy_Sci-Fi,Star Wars: Episode V - The Empire Strikes Back,duel_famous twist_rebel_rescue_snowy landscape,1980,8.8,17000
 Color,Michael Bay,63,TchÃ©ky Karyo,Will Smith,Action_Comedy_Crime_Drama_Thriller,Bad Boys,drugs_heroin_murder_police_witness,1995,6.8,0
-Color,David Zucker,43,Priscilla Presley,George Kennedy,Comedy_Crime,The Naked Gun 2Â½: The Smell of Fear,american president_evil industrialist_ex girlfriend_political leader_president,1991,6.8,0
+Color,David Zucker,43,Priscilla Presley,George Kennedy,Comedy_Crime,The Naked Gun 2½: The Smell of Fear,american president_evil industrialist_ex girlfriend_political leader_president,1991,6.8,0
 Color,James Wong,211,Brendan Fehr,Daniel Roebuck,Horror_Thriller,Final Destination,dead teenager_death_explosion_premonition_teenager,2000,6.7,0
 Color,George Clooney,421,Philip Seymour Hoffman,Ryan Gosling,Drama,The Ides of March,governor_intern_manager_ohio_politics,2011,7.1,22000
 Color,David Twohy,214,Radha Mitchell,Vin Diesel,Horror_Sci-Fi,Pitch Black,captain_darkness_eclipse_space_survival,2000,7.1,5000
@@ -2445,7 +2444,7 @@ Color,Ang Lee,124,Kate Burton,Joan Allen,Drama,The Ice Storm,ice_ice storm_storm
 Color,Rob Reiner,107,Annie Parisse,Yaya DaCosta,Comedy_Drama_Romance,And So It Goes,four word title_grandparent grandchild relationship_reference to facebook_reference to the internet_singer,2014,5.7,3000
 Color,Jeff Kanew,11,Shelley Long,Craig T. Nelson,Adventure_Comedy,Troop Beverly Hills,beverly hills hotel_divorce_girl_troop_wilderness,1989,5.5,0
 Color,IstvÃ¡n SzabÃ³,93,Shaun Evans,Miriam Margolyes,Comedy_Drama_Romance,Being Julia,diva_marriage_open marriage_revenge_social climber,2004,7.1,562
-Color,Adrian Lyne,38,Karen Young,David Margulies,Drama_Romance,9Â½ Weeks,blindfolded woman_control_male dominance_sex game_sex in public,1986,5.9,0
+Color,Adrian Lyne,38,Karen Young,David Margulies,Drama_Romance,9½ Weeks,blindfolded woman_control_male dominance_sex game_sex in public,1986,5.9,0
 Color,Matthew Robbins,60,Ralph Richardson,Ian McDiarmid,Action_Adventure_Fantasy,Dragonslayer,apprentice_dragon_king_kingdom_wizard,1981,6.7,0
 Color,Michael Hoffman,184,Kerry Condon,David Masterson,Biography_Drama_Romance,The Last Station,countess_leo tolstoy_russian_wealth_writing,2009,7,0
  Black and White,Tim Burton,148,Bill Murray,Johnny Depp,Biography_Comedy_Drama,Ed Wood,1950s_director_friend_friendship_transvestism,1994,7.9,0
@@ -3460,7 +3459,6 @@ Color,Joe Dante,147,Teri Polo,Bruce Dern,Adventure_Fantasy_Thriller,The Hole,bas
 Color,Dennis Gansel,93,Elyas M'Barek,Max Riemelt,Drama_Thriller,The Wave,autocracy_based on real events_dictatorship_germany_teacher,2008,7.6,25000
 Color,Nicolas Winding Refn,253,Bella Heathcote,Keanu Reeves,Horror_Thriller,The Neon Demon,beauty_cannibalism_fashion_lesbian_model,2016,7,0
 Color,Daniel Barber,224,Jack O'Connell,Joseph Gilgun,Action_Crime_Drama_Thriller,Harry Brown,bayonet_death_police_self defense_widower,2009,7.2,0
-Color,Sam Raimi,392,James Franco,J.K. Simmons,Action_Adventure_Romance,Spider-Man 3,sandman_spider man_symbiote_venom_villain,2007,6.2,0
 Color,Robert Marcarelli,39,William Hootkins,George Coe,Action_Adventure_Fantasy_Sci-Fi_Thriller,The Omega Code,code_evil_false accusation_megalomaniac_torah,1999,3.5,129
 Color,Jason Reitman,387,Jennifer Garner,J.K. Simmons,Comedy_Drama_Romance,Juno,adoption_baby_friend_pregnancy_school,2007,7.5,10000
 Color,Ernie Barbarash,36,Aki Aleong,Darren Shahlavi,Action_Thriller,Pound of Flesh,fighting_hand to hand combat_jujitsu_kickboxing_organ,2015,5.1,0
@@ -4937,7 +4935,7 @@ Color,Pat Holden,44,Martin Compston,Alan Brent,Horror,When the Lights Went Out,f
 Color,Eric Bugbee,2,Bill Allen,Joel Moody,Action_Drama_Sport,Heroes of Dirt,bike_bmx_drugs_troubled teen_youth,2015,7.1,197
 Color,Tobe Hooper,277,Edwin Neal,Gunnar Hansen,Horror_Thriller,The Texas Chain Saw Massacre,cannibal_chainsaw_hitchhiker_independent film_leatherface,1974,7.5,0
 Color,Bill Melendez,43,Bill Melendez,Peter Robbins,Animation_Comedy_Family,A Charlie Brown Christmas,christmas_christmas tree_commercialism_meaning of christmas_tree,1965,8.4,0
-Color,Dena Seidel,5,Hugh Ducklow,Naderev Sano,Adventure_Documentary,Antarctic Edge: 70Â° South,,2015,7,215
+Color,Dena Seidel,5,Hugh Ducklow,Naderev Sano,Adventure_Documentary,Antarctic Edge: 70° South,,2015,7,215
  Black and White,Deborah Anderson,16,Jesse Jane,Lisa Ann,Documentary,Aroused,aroused_photography_pornography documentary_pornstar,2013,5.3,207
 Color,Sara Newens,18,Xinhua Jiang,Ariel Hsing,Documentary,Top Spin,,2014,7.1,116
 Color,Michael Moore,40,Pat Boone,Michael Moore,Documentary,Roger & Me,factory_flint michigan_general motors_michigan_quest,1989,7.5,667

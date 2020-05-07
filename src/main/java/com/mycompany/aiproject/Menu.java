@@ -61,13 +61,16 @@ public class Menu extends javax.swing.JFrame {
         displayMovie_1 = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         displayMovie_2 = new javax.swing.JTextArea();
-        btnfavMovie1 = new javax.swing.JToggleButton();
-        btnfavMovie2 = new javax.swing.JToggleButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         displayMovie_3 = new javax.swing.JTextArea();
-        btnfavMovie3 = new javax.swing.JToggleButton();
         goUp = new javax.swing.JButton();
         goDown = new javax.swing.JButton();
+        likeBtn1 = new javax.swing.JButton();
+        likeBtn2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        dislikeBtn1 = new javax.swing.JButton();
+        dislikeBtn2 = new javax.swing.JButton();
+        dislikeBtn3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,15 +85,9 @@ public class Menu extends javax.swing.JFrame {
         displayMovie_2.setRows(5);
         jScrollPane1.setViewportView(displayMovie_2);
 
-        btnfavMovie1.setText("Add Favorite");
-
-        btnfavMovie2.setText("Add Favorite");
-
         displayMovie_3.setColumns(20);
         displayMovie_3.setRows(5);
         jScrollPane3.setViewportView(displayMovie_3);
-
-        btnfavMovie3.setText("Add Favorite");
 
         goUp.setText("↑");
         goUp.setToolTipText("Scroll Up");
@@ -108,34 +105,68 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        likeBtn1.setText("\t👍");
+        likeBtn1.setToolTipText("Like");
+
+        likeBtn2.setText("\t👍");
+        likeBtn2.setToolTipText("Like");
+
+        jButton1.setText("\t👍");
+        jButton1.setToolTipText("Like");
+
+        dislikeBtn1.setText("👎");
+        dislikeBtn1.setToolTipText("Dislike");
+
+        dislikeBtn2.setText("👎");
+        dislikeBtn2.setToolTipText("Dislike");
+
+        dislikeBtn3.setText("👎");
+        dislikeBtn3.setToolTipText("Dislike");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(btnfavMovie1)
-                .addGap(98, 98, 98)
-                .addComponent(btnfavMovie2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnfavMovie3)
-                .addGap(103, 103, 103))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(goUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(goDown, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(225, 225, 225)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(74, 74, 74)
+                                .addComponent(likeBtn1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dislikeBtn1)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addComponent(likeBtn2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dislikeBtn2)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(goUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(goDown, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(76, 76, 76)
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dislikeBtn3)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(225, 225, 225)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,9 +187,15 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(goDown, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnfavMovie2)
-                    .addComponent(btnfavMovie3)
-                    .addComponent(btnfavMovie1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(likeBtn1)
+                        .addComponent(dislikeBtn1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(likeBtn2)
+                        .addComponent(dislikeBtn2))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1)
+                        .addComponent(dislikeBtn3)))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -246,12 +283,22 @@ public class Menu extends javax.swing.JFrame {
         for(int i = 1; i<lines.size(); i++){
             data.add(new Movie(lines.get(i)));
         }
-        this.movies = data;
+        var sort = new ArrayList<Movie>();
+        for(int i = 0; i < data.size();i++){
+            var temp = data.get(i);
+            if(sort.stream().filter(x -> x.title.equals(temp.title)).count()==0){
+                sort.add(temp);
+            }
+        }
+        this.movies = sort;
     }
     void Initialshow(){
         sampling samples = new sampling();
         //this.displaying = this.movies.stream().sorted(Comparator.comparing(Movie::getIMDB_Score).reversed()).collect(Collectors.toList());
-        this.displaying = samples.SamplingStart(this.movies);
+        samples.Sampling(this.movies);
+        this.movies = samples.CalculatePMovies(this.movies);
+        this.displaying = movies.stream().sorted(Comparator.comparing(Movie::getLikeliness).reversed()).collect(Collectors.toList());
+        
         this.displayMovie_1.setText(this.displaying.get(0).toString());
         this.displayMovie_2.setText(this.displaying.get(1).toString());
         this.displayMovie_3.setText(this.displaying.get(2).toString());        
@@ -260,17 +307,20 @@ public class Menu extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btnfavMovie1;
-    private javax.swing.JToggleButton btnfavMovie2;
-    private javax.swing.JToggleButton btnfavMovie3;
+    private javax.swing.JButton dislikeBtn1;
+    private javax.swing.JButton dislikeBtn2;
+    private javax.swing.JButton dislikeBtn3;
     private javax.swing.JTextArea displayMovie_1;
     private javax.swing.JTextArea displayMovie_2;
     private javax.swing.JTextArea displayMovie_3;
     private javax.swing.JButton goDown;
     private javax.swing.JButton goUp;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JButton likeBtn1;
+    private javax.swing.JButton likeBtn2;
     // End of variables declaration//GEN-END:variables
 }

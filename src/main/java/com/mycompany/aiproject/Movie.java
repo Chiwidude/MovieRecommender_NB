@@ -50,13 +50,13 @@ public class Movie {
    String title;
    FArray plot_keywords;
    FArray genres;
-   Feature director;
+   String director;
    int critics_reviews;
-   Feature Actor1;
-   Feature Actor2;   
+   String Actor1;
+   String Actor2;   
    private double IMDB_Score;
    int facebook_likes;
-   Feature year;
+    String year;
    boolean liked_ByUser;
    //prior probability cold start¿?
    double priorLikeliness = Math.log(0.5);
@@ -68,14 +68,14 @@ public class Movie {
    public Movie(String[] data){
        
        this.color = data[0].trim();
-       this.director = new Feature(data[1].trim());
+       this.director = data[1].trim();
        this.critics_reviews = data[2].trim().equals("")? 0: Integer.parseInt(data[2].trim());
-       this.Actor2 = new Feature(data[3].trim());
-       this.Actor1 = new Feature(data[4].trim());
+       this.Actor2 = data[3].trim();
+       this.Actor1 = data[4].trim();
        this.genres = new FArray(data[5].split("_"));
        this.title = data[6].trim();
        this.plot_keywords = new FArray(data[7].split("_"));
-       this.year = new Feature(data[8].trim());
+       this.year =  data[8].trim();
        this.IMDB_Score = data[9].trim().equals("")? 0.0: Double.parseDouble(data[9].trim());
        this.facebook_likes = data[10].trim().equals("")? 0: Integer.parseInt(data[10].trim());
    }    
@@ -87,13 +87,19 @@ public class Movie {
        src.append(this.title);
        src.append(System.lineSeparator());
        src.append("Director: ");
-       src.append(this.director.value);
+       src.append(this.director);
        src.append(System.lineSeparator());
        src.append("Year: ");
-       src.append(this.year.value);
+       src.append(this.year);
        src.append(System.lineSeparator());
        src.append("IMDB Score: ");
        src.append(String.valueOf(this.getIMDB_Score()));
+       src.append(System.lineSeparator());
+       src.append("Genres: ");
+       for(Feature gen : genres.values){
+           src.append(gen.value);
+           src.append(" |");
+       }
        
        return src.toString();
    }
@@ -102,17 +108,6 @@ public class Movie {
   
 }
 
-class Feature{
-    String value;
-    double plikeliness;
-    double punlikeliness;
-    
-   Feature(String value){
-       this.value = value;
-       this.plikeliness = 0.0;
-       this.punlikeliness = 0.0;
-   }
-}
 class FArray{
     Feature[] values;
     double plikeliness;
