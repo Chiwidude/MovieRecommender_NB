@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
  */
 public class sampling {
     Random rand = new Random();    
-    int SamplingInitialSize = 100;
+    int SamplingInitialSize = 20;
     ArrayList<Integer> samplesnmbers = new ArrayList<>();  
     List<Movie> samples;
     List<Feature> Features;

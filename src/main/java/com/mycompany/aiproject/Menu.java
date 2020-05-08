@@ -325,6 +325,9 @@ public class Menu extends javax.swing.JFrame {
         left = 0;
         center = 1;
         right = 2;
+        if(this.goUp.isEnabled()){
+            this.goUp.setEnabled(false);
+        }
         this.displaying =  this.movies.stream().filter(x -> x.User_veredict.equals("")).sorted(Comparator.comparing(Movie::getLikeliness).reversed()).collect(Collectors.toList());
         this.displayMovie_1.setText(this.displaying.get(0).toString());
         this.displayMovie_2.setText(this.displaying.get(1).toString());

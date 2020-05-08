@@ -106,6 +106,12 @@ public class Movie {
            src.append(gen);
            src.append(" |");
        }
+       src.append("Actors: ");
+       src.append(System.lineSeparator());
+       src.append(this.Actor1);
+       src.append(", ");
+       src.append(this.Actor2);
+       
        
        return src.toString();
    }
