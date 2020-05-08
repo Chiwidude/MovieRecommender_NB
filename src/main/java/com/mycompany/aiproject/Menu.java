@@ -46,6 +46,7 @@ public class Menu extends javax.swing.JFrame {
     int left = 0;
     int center = 1;
     int right = 2;
+    sampling samples;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -71,6 +72,7 @@ public class Menu extends javax.swing.JFrame {
         dislikeBtn1 = new javax.swing.JButton();
         dislikeBtn2 = new javax.swing.JButton();
         dislikeBtn3 = new javax.swing.JButton();
+        showRecommsBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,21 +109,58 @@ public class Menu extends javax.swing.JFrame {
 
         likeBtn1.setText("\t👍");
         likeBtn1.setToolTipText("Like");
+        likeBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                likeBtn1ActionPerformed(evt);
+            }
+        });
 
         likeBtn2.setText("\t👍");
         likeBtn2.setToolTipText("Like");
+        likeBtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                likeBtn2ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("\t👍");
         jButton1.setToolTipText("Like");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         dislikeBtn1.setText("👎");
         dislikeBtn1.setToolTipText("Dislike");
+        dislikeBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dislikeBtn1ActionPerformed(evt);
+            }
+        });
 
         dislikeBtn2.setText("👎");
         dislikeBtn2.setToolTipText("Dislike");
+        dislikeBtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dislikeBtn2ActionPerformed(evt);
+            }
+        });
 
         dislikeBtn3.setText("👎");
         dislikeBtn3.setToolTipText("Dislike");
+        dislikeBtn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dislikeBtn3ActionPerformed(evt);
+            }
+        });
+
+        showRecommsBtn.setText("Ver Recomendaciones");
+        showRecommsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showRecommsBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,7 +171,9 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(225, 225, 225)
                         .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(showRecommsBtn)
+                        .addGap(36, 36, 36))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -171,17 +212,18 @@ public class Menu extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(showRecommsBtn))
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1)
+                        .addComponent(jScrollPane2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel1)
-                        .addGap(54, 54, 54)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1)
-                            .addComponent(jScrollPane2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
+                        .addGap(110, 110, 110)
                         .addComponent(goUp, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(goDown, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -242,6 +284,53 @@ public class Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_goUpActionPerformed
 
+    private void likeBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_likeBtn1ActionPerformed
+        Movie selected = this.displaying.get(left);
+        selected.User_veredict = "liked";
+        this.userInteraction(selected);        
+        
+    }//GEN-LAST:event_likeBtn1ActionPerformed
+
+    private void likeBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_likeBtn2ActionPerformed
+         Movie selected = this.displaying.get(center);
+        selected.User_veredict = "liked";
+        this.userInteraction(selected);  
+    }//GEN-LAST:event_likeBtn2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         Movie selected = this.displaying.get(right);
+        selected.User_veredict = "liked";
+        this.userInteraction(selected);  
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void dislikeBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dislikeBtn1ActionPerformed
+         Movie selected = this.displaying.get(left);
+        selected.User_veredict = "disliked";
+        this.userInteraction(selected);  
+    }//GEN-LAST:event_dislikeBtn1ActionPerformed
+
+    private void dislikeBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dislikeBtn2ActionPerformed
+         Movie selected = this.displaying.get(center);
+        selected.User_veredict = "disliked";
+        this.userInteraction(selected);  
+    }//GEN-LAST:event_dislikeBtn2ActionPerformed
+
+    private void dislikeBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dislikeBtn3ActionPerformed
+         Movie selected = this.displaying.get(right);
+        selected.User_veredict = "disliked";
+        this.userInteraction(selected);  
+    }//GEN-LAST:event_dislikeBtn3ActionPerformed
+
+    private void showRecommsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showRecommsBtnActionPerformed
+        left = 0;
+        center = 1;
+        right = 2;
+        this.displaying =  this.movies.stream().filter(x -> x.User_veredict.equals("")).sorted(Comparator.comparing(Movie::getLikeliness).reversed()).collect(Collectors.toList());
+        this.displayMovie_1.setText(this.displaying.get(0).toString());
+        this.displayMovie_2.setText(this.displaying.get(1).toString());
+        this.displayMovie_3.setText(this.displaying.get(2).toString());    
+    }//GEN-LAST:event_showRecommsBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -293,8 +382,7 @@ public class Menu extends javax.swing.JFrame {
         this.movies = sort;
     }
     void Initialshow(){
-        sampling samples = new sampling();
-        //this.displaying = this.movies.stream().sorted(Comparator.comparing(Movie::getIMDB_Score).reversed()).collect(Collectors.toList());
+        this.samples = new sampling();        
         samples.Sampling(this.movies);
         this.movies = samples.CalculatePMovies(this.movies);
         this.displaying = movies.stream().sorted(Comparator.comparing(Movie::getLikeliness).reversed()).collect(Collectors.toList());        
@@ -302,6 +390,11 @@ public class Menu extends javax.swing.JFrame {
         this.displayMovie_2.setText(this.displaying.get(1).toString());
         this.displayMovie_3.setText(this.displaying.get(2).toString());        
     }
+    void userInteraction(Movie movie){
+        this.samples.Training(movie);
+        this.movies = samples.CalculatePMovies(this.movies);
+    }
+    
     
     
 
@@ -321,5 +414,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton likeBtn1;
     private javax.swing.JButton likeBtn2;
+    private javax.swing.JButton showRecommsBtn;
     // End of variables declaration//GEN-END:variables
 }

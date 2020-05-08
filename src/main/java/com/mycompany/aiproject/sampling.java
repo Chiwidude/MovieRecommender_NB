@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
  */
 public class sampling {
     Random rand = new Random();    
-    int SamplingInitialSize = 20;
+    int SamplingInitialSize = 100;
     ArrayList<Integer> samplesnmbers = new ArrayList<>();  
     List<Movie> samples;
     List<Feature> Features;
@@ -32,8 +32,7 @@ public class sampling {
                 samplesnmbers.add(n);
             }
         }
-        samples = new ArrayList<Movie>();
-       Features = new ArrayList<>();
+        samples = new ArrayList<Movie>();       
     }
     
     public void Sampling(ArrayList<Movie> movies){        
@@ -53,6 +52,7 @@ public class sampling {
     }
     
    private void FeatureProbabilities(){
+       Features = new ArrayList<>();
         List<Movie> likedSamples =  this.samples.stream().filter(x -> x.getLikeliness() > x.getUnlikeliness()).collect(Collectors.toList());
         List<Movie> unlikedSamples = this.samples.stream().filter(x -> x.getUnlikeliness() > x.getLikeliness()).collect(Collectors.toList());                        
         totalLikeliness = (double)likedSamples.size()/this.samples.size();
@@ -84,7 +84,7 @@ public class sampling {
                 nFeature.setPunlikeliness(pthisActor2);
                 Features.add(nFeature);
             }
-            int cFeaturedirector = (int) Features.stream().filter(x -> x.value.equals(movie.director) && x.category.endsWith("director")).count();
+            int cFeaturedirector = (int) Features.stream().filter(x -> x.value.equals(movie.director) && x.category.equals("director")).count();
             if(cFeaturedirector == 0){
                 int countFeatureDirector = (int) likedSamples.stream().filter( x -> x.director.equals(movie.director)).count();
                 double pthisDirector = (double) countFeatureDirector/likedSamples.size();
@@ -96,14 +96,27 @@ public class sampling {
                 nFeature.setPunlikeliness(pthisDirector);
                 Features.add(nFeature);                
             }
+            for(String genre: movie.genres){
+                int cFeaturegenre = (int) Features.stream().filter(x -> x.value.equals(genre) && x.category.equals("genre")).count();
+                if(cFeaturegenre == 0){
+                    int countFeatureGenre = (int) likedSamples.stream().filter(x -> x.genres.contains(genre)).count();
+                    double pthisGenre = (double) countFeatureGenre / likedSamples.size();
+                    Feature nFeature = new Feature("genre",genre);
+                    nFeature.setPlikeliness(pthisGenre);
+                    //unlikeliness
+                    countFeatureGenre = (int) unlikedSamples.stream().filter(x -> x.genres.contains(genre)).count();
+                    pthisGenre = (double) countFeatureGenre/unlikedSamples.size();
+                    nFeature.setPunlikeliness(pthisGenre);
+                    Features.add(nFeature);
+                }
+                
+            }
         }        
     }
    
    public List<Movie> sSorted(){
        return this.samples.stream().sorted(Comparator.comparing(Movie::getLikeliness).reversed()).collect(Collectors.toList());
-   }
-   
-   //revisar al final de la ejecución samples cambian de probabilidad
+   }      
    public ArrayList<Movie> CalculatePMovies(ArrayList<Movie> movies){
        ArrayList<Movie> finalMovies = new ArrayList<>();
        for(int i = 0; i<movies.size(); i++){           
@@ -115,14 +128,16 @@ public class sampling {
             FeatureList.add(new Feature(feature2));
             Feature feature3 = this.Features.stream().filter(x -> x.value.equals(movie.director) && x.category.equals("director")).findAny().orElse(new Feature("director",movie.director));
             FeatureList.add( new Feature(feature3));
-            var finalMovie = PCalculation(FeatureList,movie);
-            Feature feature4 = this.Features.stream().filter(x -> x.value.equals(movie.Actor1) && x.category.equals("Actor1")).findAny().orElse(new Feature("Actor1",movie.Actor1));
+            for(String genre : movie.genres){
+                Feature feature = this.Features.stream().filter(x -> x.value.equals(genre) && x.category.equals("genre")).findAny().orElse(new Feature("genre",genre));    
+                FeatureList.add(feature);
+            }
+            var finalMovie = PCalculation(FeatureList,movie);            
             finalMovies.add(finalMovie);
        }
        
        return finalMovies;
-   }
-   
+   }   
    private Movie PCalculation(List<Feature> features, Movie movie){
        int countFeaturespLikeliness = (int) features.stream().filter(x -> x.getPlikeliness() == 0.0).count();
        int countFeaturespUnlikeliness = (int) features.stream().filter(x -> x.getPunlikeliness() == 0.0).count();
@@ -140,8 +155,7 @@ public class sampling {
        movie.setUnlikeliness(1-movie.getLikeliness());
        
        return movie;
-   }
-   
+   }   
    private List<Feature> LaplaceSmoothing(List<Feature> features){
        List<Feature> nFeatures = new ArrayList<>();
        for(int i = 0; i<features.size(); i++){
@@ -200,15 +214,33 @@ public class sampling {
            nFeatures.add(f);
        }
        return nFeatures;
-   }
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   }   
+   public void Training(Movie selected){
+       Movie nsMovie = new Movie(selected);
+       String tag = selected.User_veredict;
+       double nsample = 0.0;
+       do{
+             nsample = rand.nextDouble();
+       }while(nsample <= 0.5);
+       if(tag.equals("liked")){
+           if(nsMovie.getLikeliness() < nsample){
+               nsMovie.setLikeliness(nsample);
+               nsMovie.setUnlikeliness(1-nsample);
+           }
+           
+       }
+       if(tag.equals("disliked")){
+           if(nsMovie.getUnlikeliness() < nsample){
+                nsMovie.setUnlikeliness(nsample);
+                nsMovie.setLikeliness(1-nsample);
+           }
+
+       }
+       int countInsample = (int) this.samples.stream().filter(x -> x.title.equals(nsMovie.title)).count();
+       if(countInsample > 0){           
+           boolean done = this.samples.removeIf( x -> x.title.equals(nsMovie.title));           
+       }
+       this.samples.add(nsMovie);
+       FeatureProbabilities();
+   }                                    
 }

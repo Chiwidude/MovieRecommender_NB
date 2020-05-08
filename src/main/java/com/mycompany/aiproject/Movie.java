@@ -5,6 +5,10 @@
  */
 package com.mycompany.aiproject;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  *
  * @author panch
@@ -49,7 +53,7 @@ public class Movie {
    String color;
    String title;
    String[] plot_keywords;
-   String[] genres;
+   List<String> genres;
    String director;
    int critics_reviews;
    String Actor1;
@@ -57,7 +61,7 @@ public class Movie {
    private double IMDB_Score;
    int facebook_likes;
     String year;
-   boolean liked_ByUser;
+   String User_veredict;
    //prior probability cold start¿?
    double priorLikeliness = Math.log(0.5);
    double priorUnlikeliness = Math.log(0.5);
@@ -72,12 +76,14 @@ public class Movie {
        this.critics_reviews = data[2].trim().equals("")? 0: Integer.parseInt(data[2].trim());
        this.Actor2 = data[3].trim();
        this.Actor1 = data[4].trim();
-       this.genres = data[5].split("_");
+       this.genres = new ArrayList<>();
+       this.genres.addAll(Arrays.asList(data[5].split("_")));
        this.title = data[6].trim();
        this.plot_keywords = data[7].split("_");
        this.year =  data[8].trim();
        this.IMDB_Score = data[9].trim().equals("")? 0.0: Double.parseDouble(data[9].trim());
        this.facebook_likes = data[10].trim().equals("")? 0: Integer.parseInt(data[10].trim());
+       this.User_veredict = "";
    }    
    
    @Override
@@ -114,7 +120,7 @@ public class Movie {
        this.director = data.director;
        this.facebook_likes = data.facebook_likes;
        this.likeliness = data.likeliness;
-       this.liked_ByUser = data.liked_ByUser;
+       this.User_veredict = data.User_veredict;
        this.title = data.title;
        this.unlikeliness = data.unlikeliness;
        this.priorLikeliness = data.priorLikeliness;
